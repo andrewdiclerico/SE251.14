@@ -23,13 +23,12 @@
 		{first:"Buzz", last:"Lightyear", credit:"Toy Story" },
 		{first:"Marion", last:"Cobretti", credit:"Cobra" }
 	]
-
     var body = document.querySelector(`body`);
     var message = ``
 
     for(let i=0; i < people.length; i++)
     {
-        message += `<div class="border">`
+        message += "<div id='" + i + "' class='border'>"
         for(value in people[i])
         {
             message += `<p>`
