@@ -15,23 +15,26 @@
 
     people = fetch('https://se251-node.herokuapp.com/w2')
       .then(response => response.json())
-      .then(data => console.log(people))
+      .then(data => 
         {
-          var body = document.querySelector(`body`);
-          var message = ``
-          for(let i=0; i < people.length; i++)
-          {
-              message += `<div class="border">`
-              for(value in people[i])
-              {
-                  message += `<p>`
-                  message += `${value}: ${people[i][value]}`
-                  message += `<p>`
-              }
-              message += `</div>`        
-          }
-          body.innerHTML = message
-        };
+            var body = document.querySelector(`body`);
+            var message = ``
+            console.log(people)
+
+            for(let i=0; i < people.length; i++)
+            {
+            
+                message += `<div class="border">`
+                for(value in people[i])
+                {
+                    message += `<p>`
+                    message += `${value}: ${people[i][value]}`
+                    message += `<p>`
+                }
+                message += `</div>`        
+            }
+            body.innerHTML = message
+        });
 
 
     
