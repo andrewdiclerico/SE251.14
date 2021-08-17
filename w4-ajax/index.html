@@ -1,36 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8">
+<title>Week 2 Files</title>
+<style type="text/css">
+	.border{border:1px solid black;}
+</style>
 </head>
+
 <body>
-
-    <script>
-        fetch(`https://se251-node.herokuapp.com/w2`)
-            .then(response => response.json())
-            .then(data => console.log(people))
-            {
-                var body = document.querySelector(`body`);
-                var message = ``
-
-                for(let i=0; i < people.length; i++)
-                {
-                    message += `<div class="border">`
-                    for(value in people[i])
-                    {
-                        message += `<p>`
-                        message += `${value}: ${people[i][value]}`
-                        message += `<p>`
-                    }
-                    message += `</div>`        
-                }
-            
-                body.innerHTML = message
-            };
-    </script>
-    
 </body>
+
+<script type="text/javascript">
+
+    fetch('https://se251-node.herokuapp.com/w2')
+      .then(response => response.json())
+      .then(data => console.log(people))
+      {
+          console.log("hey")
+      };
+
+
+    var body = document.querySelector(`body`);
+    var message = ``
+
+    for(let i=0; i < people.length; i++)
+    {
+        message += `<div class="border">`
+        for(value in people[i])
+        {
+            message += `<p>`
+            message += `${value}: ${people[i][value]}`
+            message += `<p>`
+        }
+        message += `</div>`        
+    }
+
+    body.innerHTML = message
+	
+</script>
+
 </html>
