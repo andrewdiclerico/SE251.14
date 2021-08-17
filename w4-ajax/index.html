@@ -9,38 +9,39 @@
 </head>
 
 <body>
-</body>
-
-<script type="text/javascript">
-
-    fetch('https://se251-node.herokuapp.com/w2')
-        .then(response => response.json())
-        .then(people => console.log(people));
 
 
+    <script type="text/javascript">
 
-        /*{
-            var body = document.querySelector(`body`);
-            var message = ``
-            
+        fetch('https://se251-node.herokuapp.com/w2')
+            .then(response => response.json())
+            .then(people => console.log(people));
 
-            for(let i=0; i < people.length; i++)
-            {
-            
-                message += `<div class="border">`
-                for(value in people[i])
+
+
+            /*{
+                var body = document.querySelector(`body`);
+                var message = ``
+
+
+                for(let i=0; i < people.length; i++)
                 {
-                    message += `<p>`
-                    message += `${value}: ${people[i][value]}`
-                    message += `<p>`
+                
+                    message += `<div class="border">`
+                    for(value in people[i])
+                    {
+                        message += `<p>`
+                        message += `${value}: ${people[i][value]}`
+                        message += `<p>`
+                    }
+                    message += `</div>`        
                 }
-                message += `</div>`        
+                body.innerHTML = message
             }
-            body.innerHTML = message
-        }
-*/
+    */
 
-    
+    </script>
+</body>
     
 
     
