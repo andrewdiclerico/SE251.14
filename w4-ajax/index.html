@@ -15,7 +15,7 @@
 
     people = fetch('https://se251-node.herokuapp.com/w2')
       .then(response => response.json())
-      .then(data => {
+      .then(people => {
           console.log(people)
           console.log(`heyo`)
         });
