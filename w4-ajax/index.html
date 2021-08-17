@@ -13,12 +13,10 @@
 
 <script type="text/javascript">
 
-    people = fetch('https://se251-node.herokuapp.com/w2')
-      .then(response => response.json())
-      .then(people => {
-          console.log(people)
-          console.log(`heyo`)
-        });
+    fetch('https://se251-node.herokuapp.com/w2')
+        .then(response => response.json())
+        .then(people => console.log(people));
+
 
 
         /*{
