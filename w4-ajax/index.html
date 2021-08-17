@@ -15,11 +15,11 @@
 
     people = fetch('https://se251-node.herokuapp.com/w2')
       .then(response => response.json())
-      .then(data => 
+      .then(data => console.log(people))
         {
             var body = document.querySelector(`body`);
             var message = ``
-            console.log(people)
+            
 
             for(let i=0; i < people.length; i++)
             {
@@ -34,7 +34,7 @@
                 message += `</div>`        
             }
             body.innerHTML = message
-        });
+        };
 
 
     
