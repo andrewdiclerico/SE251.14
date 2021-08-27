@@ -54,28 +54,24 @@
 	
     var message = ``
 	
+	message += `<table>`
+	
     for(let i=0; i < reviews.length; i++)
     {
         message += `<tr>`
-        message += `<th>`
-		message += `<p>`
-        message += `${reviews[i].gameTitle}`
-		message += `</p>`
-        message += `</th>`
-		message += `<th>`
-        message += `${reviews[i].consoles}`
-        message += `</th>`
-		message += `<th>`
-        message += `${reviews[i].rating}`
-        message += `</th>`
-		message += `<th>`
-        message += `${reviews[i].score}`
-        message += `</th>`
-		message += `</tr>`     
 
+        message += `<td> ${reviews[i].gameTitle} </td>`
 
+		message += `<td> ${reviews[i].consoles} </td>`
 
+		message += `<td> ${reviews[i].rating} </td>`
+
+		message += `<td> ${reviews[i].score} </td>`
+
+		message += `</tr>`
     }
+
+	message += `</table>`
 
 	tbody.innerHTML = message;
 
