@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Week 3 Ajax</title>
+<style type="text/css">
+	.border{border:1px solid black;}
+</style>
+</head>
+
+<body>
+
+
+    <script type="text/javascript">
+
+        people = fetch('https://se251-node.herokuapp.com/w3')
+            .then(response => response.json())
+            .then(people => 
+                {
+                    console.log(people)
+                    var body = document.querySelector(`body`);
+                    var message = ``
+                    for(let i=0; i < people.length; i++)
+                    {
+  
+                        message += `<div class="border">`
+                        for(value in people[i])
+                        {
+                            message += `<p>`
+                            message += `${value}: ${people[i][value]}`
+                            message += `<p>`
+                        }
+                        message += `</div>`        
+                    }
+                    body.innerHTML = message
+                });
+
+    </script>
+</body>
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+	
+</script>
+
+</html>
