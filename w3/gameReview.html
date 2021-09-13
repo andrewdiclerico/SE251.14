@@ -75,5 +75,18 @@
 
 	tbody.innerHTML = message;
 
+	var aTag = document.querySelectorAll(".reviews")
+
+	console.log(aTag)
+
+	for(let i=0; i < reviews.length; i++)
+	{
+		aTag[i].addEventListener('click', function(e){
+			document.querySelector("#gameTitle").innerHTML = `${reviews[i].gameTitle}`
+			document.querySelector("#gameImage").src = `Images/${e.target.dataset.image}`
+		})
+	}
+
+	
 
 </script>

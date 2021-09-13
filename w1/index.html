@@ -32,10 +32,41 @@
 
     for(let i = 0; i < 100; i++)
     {
-        array[i] = i + 1
+        array[i] = {index:i + 1, label:undefined, height:2, age:6}
+        if(array[i].index % 2 === 0){
+            if(array[i].index % 3 == 0){
+                array[i].label = "fizz buzz"
+            }
+            else{
+                array[i].label = "fizz"
+            }
+        }
+        else if(array[i].index % 3 === 0){
+            array[i].label = "buzz"
+        }
+        
     }
     
-    console.log(`Array`, array)
+    console.log(array)
+
+    for(let i = 0; i < array.length; i++)
+    {
+        if(array[i].label === "fizz")
+        {
+            console.log(array[i])
+        }
+
+    }
+
+    for(let i = 0; i < array.length; i++)
+    {
+        
+        for(wallet in array[i])
+        {
+            console.log(array[i][wallet])
+
+        }     
+    }
 
 </script>
 </html>
