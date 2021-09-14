@@ -44,7 +44,7 @@
 <script type="text/javascript">
     reviews = fetch('https://se251-node.herokuapp.com/w3')
         .then(response => response.json())
-        .then(people => {
+        .then(reviews => {
             
             var body = document.querySelector(`body`);
             var message = ``
