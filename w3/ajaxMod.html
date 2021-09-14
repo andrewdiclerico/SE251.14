@@ -3,60 +3,83 @@
 <head>
 <meta charset="utf-8">
 <title>Week 3 Ajax</title>
-<style type="text/css">
-	.border{border:1px solid black;}
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style type='text/css'>
+    .imgframe   { background:black; padding:12px; border:1px solid #999; }
 </style>
 </head>
 
 <body>
-
-
-    <script type="text/javascript">
-
-        reviews = fetch('https://se251-node.herokuapp.com/w3')
-            .then(response => response.json())
-            .then(people => {
-                    //console.log(reviews)
-                    var body = document.querySelector(`body`);
-                    var message = ``
-
-                    for(let i=0; i < reviews.length; i++)
-                    {
-                        var tbody = document.querySelector(`tbody`);
-	
-                        var message = ``
-
-                        message += `<table>`
-                        
-                        for(let i=0; i < reviews.length; i++)
-                        {
-                            message += `<tr>`
-                            message += `<td> <a href="#" class="reviews" data-image="${reviews[i].imageName}"> ${reviews[i].gameTitle} </td>`
-                        	message += `<td> ${reviews[i].consoles} </td>`
-                        	message += `<td> ${reviews[i].rating} </td>`
-                        	message += `<td> ${reviews[i].score} </td>`
-                        	message += `</tr>`
-                        }
-                        message += `</table>`
-                        tbody.innerHTML = message;
-                        var aTag = document.querySelectorAll(".reviews")
-                        console.log(aTag)
-                        for(let i=0; i < reviews.length; i++)
-                        {
-                        	aTag[i].addEventListener('click', function(e){
-                        		document.querySelector("#gameTitle").innerHTML = `${reviews[i].gameTitle}`
-                        		document.querySelector("#gameImage").src = `Images/${e.target.dataset.image}`
-                        	})
-                        }
-
-                    }
-                    body.innerHTML = message
-                });
-
-    </script>
+    <div class="container">
+        <div class="row">
+            <div class='col-md-8'>
+                <h1>Game Reviews</h1>
+                
+                
+                <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Game Title</th>
+                    <th>Console</th>
+                    <th>Rating</th>
+                    <th>Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                   
+                   
+                    
+                </tbody>
+              </table>
+          </div>
+         
+          <div class='col-md-4' style='margin-top:200px;'>
+            <h2 id="gameTitle"></h2>
+                <img id='gameImage'  src=''>
+          </div>
+        </div>
+    </div>
 </body>
     
-
+<script type="text/javascript">
+    reviews = fetch('https://se251-node.herokuapp.com/w3')
+        .then(response => response.json())
+        .then(people => {
+                //console.log(reviews)
+                var body = document.querySelector(`body`);
+                var message = ``
+                for(let i=0; i < reviews.length; i++)
+                {
+                    var tbody = document.querySelector(`tbody`);
+	
+                    var message = ``
+                    message += `<table>`
+                    
+                    for(let i=0; i < reviews.length; i++)
+                    {
+                        message += `<tr>`
+                        message += `<td> <a href="#" class="reviews" data-image="${reviews[i].imageName}"> ${reviews[i].gameTitle} </td>`
+                    	message += `<td> ${reviews[i].consoles} </td>`
+                    	message += `<td> ${reviews[i].rating} </td>`
+                    	message += `<td> ${reviews[i].score} </td>`
+                    	message += `</tr>`
+                    }
+                    message += `</table>`
+                    tbody.innerHTML = message;
+                    var aTag = document.querySelectorAll(".reviews")
+                    console.log(aTag)
+                    
+                    for(let i=0; i < reviews.length; i++)
+                    {
+                    	aTag[i].addEventListener('click', function(e){
+                    		document.querySelector("#gameTitle").innerHTML = `${reviews[i].gameTitle}`
+                    		document.querySelector("#gameImage").src = `Images/${e.target.dataset.image}`
+                    	})
+                    }
+                }
+                body.innerHTML = message
+            });
+</script>
     
     
     
