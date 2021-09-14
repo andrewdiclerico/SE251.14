@@ -13,24 +13,42 @@
 
     <script type="text/javascript">
 
-        people = fetch('https://se251-node.herokuapp.com/w3')
+        reviews = fetch('https://se251-node.herokuapp.com/w3')
             .then(response => response.json())
-            .then(people => 
-                {
-                    console.log(people)
+            .then(people => {
+                    //console.log(reviews)
                     var body = document.querySelector(`body`);
                     var message = ``
-                    for(let i=0; i < people.length; i++)
+
+                    for(let i=0; i < reviews.length; i++)
                     {
-  
-                        message += `<div class="border">`
-                        for(value in people[i])
+                        var tbody = document.querySelector(`tbody`);
+	
+                        var message = ``
+
+                        message += `<table>`
+                        
+                        for(let i=0; i < reviews.length; i++)
                         {
-                            message += `<p>`
-                            message += `${value}: ${people[i][value]}`
-                            message += `<p>`
+                            message += `<tr>`
+                            message += `<td> <a href="#" class="reviews" data-image="${reviews[i].imageName}"> ${reviews[i].gameTitle} </td>`
+                        	message += `<td> ${reviews[i].consoles} </td>`
+                        	message += `<td> ${reviews[i].rating} </td>`
+                        	message += `<td> ${reviews[i].score} </td>`
+                        	message += `</tr>`
                         }
-                        message += `</div>`        
+                        message += `</table>`
+                        tbody.innerHTML = message;
+                        var aTag = document.querySelectorAll(".reviews")
+                        console.log(aTag)
+                        for(let i=0; i < reviews.length; i++)
+                        {
+                        	aTag[i].addEventListener('click', function(e){
+                        		document.querySelector("#gameTitle").innerHTML = `${reviews[i].gameTitle}`
+                        		document.querySelector("#gameImage").src = `Images/${e.target.dataset.image}`
+                        	})
+                        }
+
                     }
                     body.innerHTML = message
                 });
