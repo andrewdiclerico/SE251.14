@@ -73,7 +73,7 @@
 		<input type="button" id="search-submit" value="search">
 		<section id="search-output">
 			<h2>Search Output</h2>
-			<div class="output">
+			<div class="output" id="searchOutput">
 				<!--Output search info to here.-->
 			</div>
 		</section>
@@ -83,10 +83,10 @@
 	<section  id="list-area">
 		<input type="button" value="List Database Analysts" id="list-database-analyst">
 		<input type="button" value="List Web Developers" id="list-web-developer">
-		<input type="button" value="List Software Developers" id="list-software-developers" onclick="listSd()">
+		<input type="button" value="List Software Developers" id="list-software-developers">
 		<section id="list-output">
 			<h2>List Output</h2>
-			<div class="output">
+			<div class="output" id="listOutput">
 				<!--Output list info to here.-->
 			</div>
 		</section>
@@ -118,28 +118,100 @@
 		var dbTotal = 0
 
 
-		for(let i=0; i < jobs.length; i++)
-		{
+
+		
 
 			
-			jobs[i].salary = dbTotal
-			if(jobs[i].jobTitle = 'Database Analyst')
+			//jobs[i].salary = dbTotal
+			//if(jobs[i].jobTitle = 'Database Analyst')
+			//{
+			//	//jobs[i].salary = dbTotal
+			//	
+			//	//dbTotal = dbTotal += dbAvg	
+			//	//dbAvg = dbAvg / 30
+			//	
+			//	console.log(dbTotal)
+			//}
+			
+			document.getElementById("list-software-developers").addEventListener('click', function(e)
 			{
-				//jobs[i].salary = dbTotal
-				
-				//dbTotal = dbTotal += dbAvg	
-				//dbAvg = dbAvg / 30
-				
-				console.log(dbTotal)
-			}
+				listOutput = ``
+				for(let i=0; i < jobs.length; i++)
+				{
+					if(jobs[i].jobTitle == 'Software Developer')
+					{
+						listOutput += `<div>`
+						listOutput += `${jobs[i].name.first} `
+						listOutput += `${jobs[i].name.last} `
+						listOutput += `$${jobs[i].salary}`
+						listOutput += `</div>`
+						
+					}
+					document.getElementById("listOutput").innerHTML = listOutput
+				}
+			})
+
+			document.getElementById("list-web-developer").addEventListener('click', function(e)
+			{
+				listOutput = ``
+				for(let i=0; i < jobs.length; i++)
+				{
+					if(jobs[i].jobTitle == 'Web Developer')
+					{
+						listOutput += `<div>`
+						listOutput += `${jobs[i].name.first} `
+						listOutput += `${jobs[i].name.last} `
+						listOutput += `$${jobs[i].salary}`
+						listOutput += `</div>`
+					}
+					document.getElementById("listOutput").innerHTML = listOutput
+				}
+			})
+			
+			document.getElementById("list-database-analyst").addEventListener('click', function(e)
+			{
+				listOutput = ``
+				for(let i=0; i < jobs.length; i++)
+				{
+					if(jobs[i].jobTitle == 'Database Analyst')
+					{
+						listOutput += `<div>`
+						listOutput += `${jobs[i].name.first} `
+						listOutput += `${jobs[i].name.last} `
+						listOutput += `$${jobs[i].salary}`
+						listOutput += `</div>`
+					}
+					document.getElementById("listOutput").innerHTML = listOutput
+				}
+			})
+
 			
 			
-		}
+
+			document.getElementById("search-submit").addEventListener('click', function(e)
+			{
+				searchFName = document.getElementById("first-name")
+				searchLName = document.getElementById("last-name")
+				listOutput = ``;
+				for(let i=0; i < jobs.length; i++)
+				{
+					if(jobs[i].name.first == searchFName && jobs[i].name.last == searchLName)
+					{
+						
+						listOutput += `<div>`
+						listOutput += `${jobs[i].name.first} `
+						listOutput += `${jobs[i].name.last} `
+						listOutput += `$${jobs[i].salary}`
+						listOutput += `</div>`
+						console.log(searchFName)
+						console.log(searchLName)
+						
+					}
+					document.getElementById("searchOutput").innerHTML += listOutput
+				}
+			})
+
 		
-			function listSd()
-			{
-				alert("Hello")
-			}
 	});
 </script>
 </html>
