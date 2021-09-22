@@ -64,17 +64,17 @@
 	document.getElementById("colorMeGreen").addEventListener('click', function(e){
 	
 
-		div = document.getElementById("div_")
+		div = document.getElementById("div_").value
 		console.log("green button")
 		
 		console.log(div)
 
 
 		for(i = 0; i<100; i++){
-			console.log(div[i])
+			console.log(div)
 			if(div === 3)
 			{
-				console.log("HEYO")
+				console.log("Hey")
 				div.style.background="green";
 			}
 			

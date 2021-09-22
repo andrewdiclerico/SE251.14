@@ -38,52 +38,34 @@
         {
 			console.log(disney)
 			document.getElementById("select").addEventListener("change", function(e){
-				console.log(disney[0].name)
+				console.log(disney)
 				console.log(submit.value)
 				if(submit.value == 0)
 				{
-					
+					console.log("working")
 					document.getElementById("charName").innerHTML += `: ${disney[0].name}`
 					document.getElementById("charQuote").innerHTML += `: ${disney[0].quote}`
 					document.getElementById("image").src = `${disney[0].image}`
+					//^^^image only shows up when testing local
 				}
 
 				else if(submit.value == 1)
 				{
-
+					console.log("working")
 					document.getElementById("charName").innerHTML += `: ${disney[2].name}`
 					document.getElementById("charQuote").innerHTML += `: ${disney[2].quote}`
 					document.getElementById("image").src = `${disney[2].image}`
+					//^^^image only shows up when testing local
 				}
 				else if(submit.value == 2)
 				{
-
+					console.log("working")
 					document.getElementById("charName").innerHTML += `: ${disney[1].name}`
 					document.getElementById("charQuote").innerHTML += `: ${disney[1].quote}`
 					document.getElementById("image").src = `${disney[1].image}`
+					//^^^image only shows up when testing local
 				}
 			})
-
-
-			//document.getElementById('select').addEventListener('change', function() 
-			//{
-			//	console.log(heyo)
-			//	if(mickey == "0")
-			//})
-
-
-			//if(mickey == "1")
-            //console.log("heythere")
-
-			//for(let i=0; i < disney.length; i++)
-			//{
-			//	disney[i].addEventListener('click', function(e){
-			//	document.querySelector("#gameTitle").innerHTML = `${reviews[i].gameTitle}`
-			//	document.querySelector("#image").src = `images/${e.target.dataset.image}`
-			//	})
-			//}
-			
-
         });
 	
 	</script>	
