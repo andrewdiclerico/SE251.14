@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Grid - Week 5</title>
+    <style type="text/css">
+        .border{border-style: solid; border-width: 1px; width:25px; height: 25px; 
+        float: left; margin-left: 2px;}
+        #colorMeGreen {background-color: #4CAF50;}
+        #colorMeRed {background-color: red;}
+        #colorMeBlue {background-color: blue;}
+    </style>
 </head>
 <body>
     <form name="Random Grid" action="click" >
@@ -30,10 +37,28 @@
             table += `<tr>`
                 for(let i=0; i < number; i++)
                 {
-                    table += `<td>`
                     var rand = getRandomInt(number + 9)
-                    table += `${rand}`
-                    table += `</td>`
+                    if(rand / 3 == 0)
+                    {
+                        table += `<td class='border'>`
+                        //var rand = getRandomInt(number + 9)
+                        table += `${rand}`
+                        table += `</td>`
+                    }
+                    else if(rand / 2 == 0)
+                    {
+                        table += `<td class='border'>`
+                        //var rand = getRandomInt(number + 9)
+                        table += `${rand}`
+                        table += `</td>`
+                    }
+                    else
+                    {
+                        table += `<td class='border'>`
+                        //var rand = getRandomInt(number + 9)
+                        table += `${rand}`
+                        table += `</td>`
+                    }
                 }
             table += `<tr>`
         }
