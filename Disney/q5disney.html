@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Disney</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body>
+	<nav>
+			<select id="select">
+				<option value="0" id="mickey">Mickey</option>
+				<option value="1">Goofy</option>
+				<option value="2">Donald</option>
+			</select>
+		</nav>
+		<div id="wrapper">
+			<section>
+				<h1>Disney Characters</h1>
+				<img src="images/placeholder.png" alt="character" id="image"/>
+				<p id="charName">Character Name</p>
+				<p><i id="charQuote">Quote Goes Here</i></p>
+			</section>
+		</div>
+		
+	<script>
+		//--Javascript goes here--
+		
+		submit = document.getElementById("select")
+		//image = 
+		text = ``
+
+
+
+		disney = fetch('https://se251-node.herokuapp.com/final')
+    .then(response => response.json())
+    .then(disney => 
+        {
+			console.log(disney)
+			document.getElementById("select").addEventListener("change", function(e){
+				console.log(disney[0].name)
+				console.log(submit.value)
+				if(submit.value == 0)
+				{
+					
+					document.getElementById("charName").innerHTML += `: ${disney[0].name}`
+					document.getElementById("charQuote").innerHTML += `: ${disney[0].quote}`
+					//doesnt work document.getElementById("image").src = `images/${e.target.disney[0].image}`
+				}
+
+				else if(submit.value == 1)
+				{
+
+					document.getElementById("charName").innerHTML += `: ${disney[2].name}`
+					document.getElementById("charQuote").innerHTML += `: ${disney[2].quote}`
+					//doesnt work document.getElementById("image").src = `images/${e.target.disney[0].image}`
+				}
+				else if(submit.value == 2)
+				{
+
+					document.getElementById("charName").innerHTML += `: ${disney[1].name}`
+					document.getElementById("charQuote").innerHTML += `: ${disney[1].quote}`
+					//document.getElementById("image").src = `images/${e.target.disney[0].image}`
+				}
+			})
+
+
+			//document.getElementById('select').addEventListener('change', function() 
+			//{
+			//	console.log(heyo)
+			//	if(mickey == "0")
+			//})
+
+
+			//if(mickey == "1")
+            //console.log("heythere")
+
+			//for(let i=0; i < disney.length; i++)
+			//{
+			//	disney[i].addEventListener('click', function(e){
+			//	document.querySelector("#gameTitle").innerHTML = `${reviews[i].gameTitle}`
+			//	document.querySelector("#image").src = `images/${e.target.dataset.image}`
+			//	})
+			//}
+			
+
+        });
+	
+	</script>	
+	</body>
+	
+</html>
+

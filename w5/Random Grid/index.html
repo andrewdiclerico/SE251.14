@@ -7,30 +7,47 @@
     <title>Random Grid - Week 5</title>
 </head>
 <body>
-    <form name="Random Grid" action="" >
-        <input type="text" name="inputbox" placeholder="number" id="number">
+    <form name="Random Grid" action="click" >
+        <input type="text" name="inputbox" placeholder="Generate Grid" id="number" >
         <input type="button" name="button" value="Generate Grid" onclick="btnClick()">
     </form>
-
-    <script>
-        function btnClick(){
-
-            //"number" equals the number entered in text box
-            number = document.getElementById("#number").value;
-
-            //console logs the number entered
-            console.log(number)
-
-            //loop to setup rows
-            for(let i = 0; i < number; i++)
-            {
-                
-
-
-
-
-            }
-        }
-    </script>
 </body>
+<script>
+    function btnClick(){
+        
+        table = ``
+        table += `<table>`
+        //"number" equals the number entered in text box
+        number = document.getElementById("number").value;
+        //console logs the number entered
+        console.log(number)
+        
+
+    
+        //loop to setup rows
+        for(let i = 0; i < number; i++)
+        {   
+            table += `<tr>`
+                for(let i=0; i < number; i++)
+                {
+                    table += `<td>`
+                    var rand = getRandomInt(number + 9)
+                    table += `${rand}`
+                    table += `</td>`
+                }
+            table += `<tr>`
+        }
+        table += `</table>`
+        document.body.innerHTML = table;
+        
+
+
+        function getRandomInt(max)
+        {
+            return Math.floor(Math.random() * max);
+        }
+        console.log(getRandomInt(9))
+    }
+</script>
+
 </html>
