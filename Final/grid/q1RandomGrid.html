@@ -29,7 +29,7 @@
 			<input type="text" value="5" id="redText" class="colorValue">
 			<input type="button" value="Color Me Red" id="colorMeRed" class="colorMe" data-color="red"><br />
 			<input type="text" value="7" id="blueText" class="colorValue">
-			<input type="button" value="Color Me Blue" id="colorMeBlue" class="colorMe" data-color="blue" onclick="chBlue()"><br />
+			<input type="button" value="Color Me Blue" id="colorMeBlue" class="colorMe" data-color="blue"><br />
 			
 		</div>
     </div>
@@ -46,27 +46,49 @@
 	
 	$(document).ready (function (e) {
 		var str = "";
-		for (i=0; i<100; i++) {
-			str += "<div id=div_" + i + " class='num'>";
+		for (i=0; i<100; i++) 
+		{
+			str += "<div id='div_'" + i + " class='num'>";
 			str += randomNumber (1, 10);
 			str += "</div>";
-			//if(".num".value == 7)
-			{
-				
-				theDiv += "document.body.style.backgroundColor = 'blue';"
-				document.querySelector("div_").innerHTML = `${str}`
-			}
+			
 		}
+		
 		$("#contents").html (str);
-
-		function chBlue()
-		{
-			theDiv = doument.getElementByID("div_")
-			console.log("theDiv")
-		}
 		
 		
 		
 	});
+
+	
+	document.getElementById("colorMeGreen").addEventListener('click', function(e){
+	
+
+		div = document.getElementById("div_")
+		console.log("green button")
+		
+		console.log(div)
+
+
+		for(i = 0; i<100; i++){
+			console.log(div[i])
+			if(div === 3)
+			{
+				console.log("HEYO")
+				div.style.background="green";
+			}
+			
+		}
+
+
+	})
+
+	document.getElementById("colorMeRed").addEventListener('click', function(e){
+		console.log("red button")
+	})
+
+	document.getElementById("colorMeBlue").addEventListener('click', function(e){
+		console.log("blue button")
+	})
 	
 </script>

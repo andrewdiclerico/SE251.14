@@ -45,7 +45,7 @@
 					
 					document.getElementById("charName").innerHTML += `: ${disney[0].name}`
 					document.getElementById("charQuote").innerHTML += `: ${disney[0].quote}`
-					//doesnt work document.getElementById("image").src = `images/${e.target.disney[0].image}`
+					document.getElementById("image").src = `${disney[0].image}`
 				}
 
 				else if(submit.value == 1)
@@ -53,14 +53,14 @@
 
 					document.getElementById("charName").innerHTML += `: ${disney[2].name}`
 					document.getElementById("charQuote").innerHTML += `: ${disney[2].quote}`
-					//doesnt work document.getElementById("image").src = `images/${e.target.disney[0].image}`
+					document.getElementById("image").src = `${disney[2].image}`
 				}
 				else if(submit.value == 2)
 				{
 
 					document.getElementById("charName").innerHTML += `: ${disney[1].name}`
 					document.getElementById("charQuote").innerHTML += `: ${disney[1].quote}`
-					//document.getElementById("image").src = `images/${e.target.disney[0].image}`
+					document.getElementById("image").src = `${disney[1].image}`
 				}
 			})
 
